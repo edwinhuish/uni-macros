@@ -1,0 +1,40 @@
+{
+  "name": "vite-plugin-uni-macros",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Edwin Xu",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "build": "rimraf --glob packages/*/dist && pnpm -r --filter=./packages/* run build",
+    "dev:h5": "pnpm build && pnpm --filter=./packages/playground dev:h5",
+    "typecheck": "tsc -p . --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "pnpm lint --fix",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.8.3",
+    "@antfu/utils": "^0.7.7",
+    "@babel/generator": "^7.23.6",
+    "@dcloudio/types": "^3.4.8",
+    "@types/babel__generator": "^7.6.8",
+    "@types/debug": "^4.1.12",
+    "@types/node": "^20.11.28",
+    "@vue-macros/common": "^1.10.1",
+    "ast-walker-scope": "^0.6.1",
+    "bumpp": "^9.4.0",
+    "debug": "^4.3.4",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "magic-string": "^0.30.8",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.2",
+    "unbuild": "^2.0.0",
+    "unconfig": "^0.3.11",
+    "unplugin": "^1.10.0",
+    "vitest": "^1.4.0"
+  }
+}

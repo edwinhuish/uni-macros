@@ -1,0 +1,64 @@
+{
+  "name": "@uni-helper/vite-plugin-define-pages-json",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Define uniapp pages.json dynamically.",
+  "author": "Edwin Xu",
+  "license": "MIT",
+  "homepage": "https://github.com/uni-helper/vite-plugin-uni-macros",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uni-helper/vite-plugin-uni-macros.git"
+  },
+  "bugs": "https://github.com/uni-helper/vite-plugin-uni-macros/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./client": {
+      "types": "./client.d.ts"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./index.d.ts",
+  "files": [
+    "client.d.ts",
+    "dist",
+    "index.d.ts",
+    "shims-uni-app.d.ts"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub"
+  },
+  "dependencies": {
+    "@antfu/utils": "^0.7.7",
+    "@babel/core": "^7.24.3",
+    "@babel/generator": "^7.23.6",
+    "@babel/traverse": "^7.24.1",
+    "@babel/types": "^7.24.0",
+    "@vue/compiler-core": "^3.4.21",
+    "@vue/compiler-sfc": "^3.4.21",
+    "ast-kit": "^0.12.1",
+    "debug": "^4.3.4",
+    "fast-glob": "^3.3.2",
+    "tsx": "^4.7.1",
+    "unconfig": "^0.3.11"
+  },
+  "devDependencies": {
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__generator": "^7.6.8",
+    "@types/babel__traverse": "^7.20.5",
+    "@types/debug": "^4.1.12"
+  }
+}

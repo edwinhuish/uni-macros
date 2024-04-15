@@ -1,0 +1,84 @@
+import type { UserConfig } from '../config';
+import type { Plugin } from 'vite';
+import { spawn } from 'node:child_process';
+import process from 'node:process';
+import chokidar from 'chokidar';
+import MagicString from 'magic-string';
+import { resolveConfig } from '../config';
+import { DEFINE_PAGE } from '../constant';
+import { ctx } from '../context';
+import { checkPagesJsonFile } from '../pagesJson';
+import { debug } from '../utils';
+import { setupViteServer, setupWatcher } from './watch';
+
+async function restart() {
+  return new Promise((resolve) => {
+    const build = spawn(process.argv.shift()!, process.argv, {
+      cwd: process.cwd(),
+      detached: true,
+      env: process.env,
+    });
+    build.stdout?.pipe(process.stdout);
+    build.stderr?.pipe(process.stderr);
+    build.on('close', (code) => {
+      resolve(process.exit(code!));
+    });
+  });
+}
+
+export function viteDefinePagesJson(userConfig: UserConfig = {}): Plugin {
+  const config = resolveConfig(userConfig);
+
+  checkPagesJsonFile();
+
+  return {
+    name: 'vite-plugin-define-pages-json',
+    enforce: 'pre',
+    async configResolved(viteConf) {
+      config.root = viteConf.root;
+      await ctx.updatePagesJSON();
+
+      if (viteConf.command === 'build') {
+        if (!checkPagesJsonFile()) {
+          debug.error('In build mode, if `pages.json` does not exist, the plugin cannot create the complete `pages.json` before the uni-app, so it restarts the build.');
+          await restart();
+        }
+
+        if (viteConf.build.watch) {
+          setupWatcher(chokidar.watch([...ctx.files.keys()]));
+        }
+      }
+    },
+    async transform(code: string, id: string) {
+      const file = ctx.files.get(id);
+      if (!file) {
+        return;
+      }
+
+      const macro = file.getScriptSetup()?.findMacro(DEFINE_PAGE);
+      if (!macro) {
+        return;
+      }
+
+      const s = new MagicString(code);
+      s.remove(macro.start!, macro.end!);
+
+      if (s.hasChanged()) {
+        const code = s.toString();
+
+        debug.watcher({ code });
+        return {
+          code,
+          map: s.generateMap({
+            source: id,
+            includeContent: true,
+            file: `${id}.map`,
+          }),
+        };
+      }
+    },
+    configureServer(server) {
+      setupViteServer(server);
+    },
+  };
+}
