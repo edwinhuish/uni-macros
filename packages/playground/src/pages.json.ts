@@ -1,4 +1,4 @@
-import { definePagesJson } from '@uni-helper/vite-plugin-define-pages-json';
+import { definePagesJson } from 'vite-plugin-define-pages-json';
 
 export default definePagesJson({
   globalStyle: {

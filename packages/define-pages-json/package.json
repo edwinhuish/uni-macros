@@ -1,16 +1,16 @@
 {
-  "name": "@uni-helper/vite-plugin-define-pages-json",
+  "name": "vite-plugin-define-pages-json",
   "type": "module",
   "version": "0.0.1",
   "description": "Define uniapp pages.json dynamically.",
   "author": "Edwin Xu",
   "license": "MIT",
-  "homepage": "https://github.com/uni-helper/vite-plugin-uni-macros",
+  "homepage": "https://github.com/edwinhuish/uni-macros",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uni-helper/vite-plugin-uni-macros.git"
+    "url": "git+https://github.com/edwinhuish/uni-macros.git"
   },
-  "bugs": "https://github.com/uni-helper/vite-plugin-uni-macros/issues",
+  "bugs": "https://github.com/edwinhuish/uni-macros/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {

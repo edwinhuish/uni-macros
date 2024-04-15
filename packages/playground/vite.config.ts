@@ -1,6 +1,6 @@
 import uni from '@dcloudio/vite-plugin-uni';
-import VitePageJson from '@uni-helper/vite-plugin-define-pages-json';
 import { defineConfig } from 'vite';
+import VitePageJson from 'vite-plugin-define-pages-json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
