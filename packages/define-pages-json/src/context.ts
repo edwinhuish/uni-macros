@@ -1,8 +1,9 @@
+import type { UserConfig } from './config';
 import type { PagesJson, PagesJsonPage, PagesJsonSubPackage, TabBarItem, TabBarItemList } from './types';
 import fs from 'node:fs';
 import path from 'node:path';
 import fg from 'fast-glob';
-import { getConfig } from './config';
+import { getConfig, resolveConfig } from './config';
 import { FILE_EXTENSIONS } from './constant';
 import { File } from './file';
 import { Page } from './page';
@@ -23,6 +24,14 @@ export class Context {
 
   get config() {
     return getConfig();
+  }
+
+  init(config: UserConfig = {}) {
+    resolveConfig(config);
+
+    this.files.clear();
+    this.pages.clear();
+    this.subPackages.clear();
   }
 
   async scanFiles() {

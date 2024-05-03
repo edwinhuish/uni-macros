@@ -4,7 +4,6 @@ import { spawn } from 'node:child_process';
 import process from 'node:process';
 import chokidar from 'chokidar';
 import MagicString from 'magic-string';
-import { resolveConfig } from '../config';
 import { DEFINE_PAGE } from '../constant';
 import { ctx } from '../context';
 import { checkPagesJsonFile } from '../pagesJson';
@@ -27,7 +26,7 @@ async function restart() {
 }
 
 export function viteDefinePagesJson(userConfig: UserConfig = {}): Plugin {
-  const config = resolveConfig(userConfig);
+  ctx.init(userConfig);
 
   checkPagesJsonFile();
 
@@ -35,7 +34,7 @@ export function viteDefinePagesJson(userConfig: UserConfig = {}): Plugin {
     name: 'vite-plugin-define-pages-json',
     enforce: 'pre',
     async configResolved(viteConf) {
-      config.root = viteConf.root;
+      ctx.config.root = viteConf.root;
       await ctx.updatePagesJSON();
 
       if (viteConf.command === 'build') {
