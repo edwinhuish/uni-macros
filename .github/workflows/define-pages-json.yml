@@ -21,7 +21,8 @@ jobs:
       - name: Read package.json INFO
         id: info
         run: |
-          echo "version=$(cat package.json | jq -r '.version')" >> $GITHUB_ENV
+          VERSION=$(cat package.json | jq -r '.version')
+          echo "version=${VERSION}" >> $GITHUB_ENV
 
       - run: echo "version - ${{ steps.info.outputs.version }}"
 
