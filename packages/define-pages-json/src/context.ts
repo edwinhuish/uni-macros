@@ -1,10 +1,12 @@
 import type { UserConfig } from './config';
 import type { PagesJson, PagesJsonPage, PagesJsonSubPackage, TabBarItem, TabBarItemList } from './types';
+import type { TabBar } from './uniapp/tabBar';
 import fs from 'node:fs';
 import path from 'node:path';
 import fg from 'fast-glob';
 import { getConfig, resolveConfig } from './config';
 import { FILE_EXTENSIONS } from './constant';
+import { writeDeclaration } from './declaration';
 import { File } from './file';
 import { Page } from './page';
 import { checkPagesJsonFile, getPagesConfig } from './pagesJson';
@@ -111,7 +113,10 @@ export class Context {
 
     fs.writeFileSync(this.config.pagesJsonFile, raw);
 
-    // TODO write file
+    if (this.config.dts) {
+      writeDeclaration(pagesJSON, this.config.dts);
+    }
+
     lastPagesJson = raw;
     return true;
   }
@@ -145,9 +150,11 @@ export class Context {
   private async mergeTabbarOptions(pagesJSON: PagesJson) {
     const options = await this.getTabbarOptions();
 
-    const { tabBar } = pagesJSON;
+    const emptyTabbar = { list: [] } as unknown as TabBar;
 
-    if (!options.length || !tabBar) {
+    const { tabBar = emptyTabbar } = pagesJSON;
+
+    if (!options.length) {
       return;
     }
 

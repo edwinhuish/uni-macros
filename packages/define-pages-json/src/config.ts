@@ -1,7 +1,7 @@
 import type { DebugType } from './utils';
 import path from 'node:path';
 import process from 'node:process';
-import { OUTPUT_NAME } from './constant';
+import { DTS_FILE_NAME, OUTPUT_NAME } from './constant';
 import { enableDebug } from './utils';
 
 export interface UserConfig {
@@ -81,7 +81,7 @@ export function resolveConfig(useConfig: UserConfig): ResolvedConfig {
     root,
     get dts() {
       return dts === undefined
-        ? this.basePath
+        ? path.resolve(this.basePath, DTS_FILE_NAME)
         : dts;
     },
     pages,

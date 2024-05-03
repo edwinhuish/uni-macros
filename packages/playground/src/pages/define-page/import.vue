@@ -6,6 +6,7 @@ definePage(() => {
     style: {
       navigationBarTitleText: randamText(),
     },
+    tabbar: {},
   };
 });
 </script>

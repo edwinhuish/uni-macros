@@ -5,7 +5,7 @@ import { slash } from '@antfu/utils';
 import { DEFINE_PAGE } from './constant';
 import { debug } from './utils';
 
-export type DefineTabbarOptions = TabBarItem & {
+export type DefineTabbarOptions = Omit<TabBarItem, 'pagePath'> & {
   /**
    * 配置tabbar路径
    * @deprecated 无效，将会根据文件路径自动生成
@@ -15,7 +15,7 @@ export type DefineTabbarOptions = TabBarItem & {
   /**
    * 排序，数值越小越靠前
    */
-  index: number;
+  index?: number;
 };
 
 export type PageType = 'home' | 'normal';
@@ -95,9 +95,10 @@ export class Page {
       return;
     }
 
-    const { pagePath: _, ...others } = tabbar;
+    const { pagePath: _, index = 0, ...others } = tabbar;
 
     const options: TabBarItem & { index: number } = {
+      index,
       pagePath: this.uri,
       ...others,
     };

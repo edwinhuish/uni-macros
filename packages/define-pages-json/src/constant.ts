@@ -6,3 +6,5 @@ export const OUTPUT_NAME = 'pages.json';
 export const FILE_EXTENSIONS = ['vue', 'nvue', 'uvue'];
 
 export const DEFINE_PAGE = 'definePage';
+
+export const DTS_FILE_NAME = 'pages.d.ts';
