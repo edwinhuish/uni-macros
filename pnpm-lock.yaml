@@ -107,6 +107,9 @@ importers:
       fast-glob:
         specifier: ^3.3.2
         version: 3.3.2
+      magic-string:
+        specifier: ^0.30.8
+        version: 0.30.9
       tsx:
         specifier: ^4.7.1
         version: 4.7.2
