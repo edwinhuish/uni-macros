@@ -186,12 +186,16 @@ function parseScriptSetup(file: File) {
 }
 
 async function exec<R = any>(file: string, exp: t.Expression, imports: t.ImportDeclaration[]): Promise<R | undefined> {
-  const config = getConfig();
-
-  const tsx = path.join(config.root, 'node_modules', '.bin', 'tsx');
+  let tsx = path.join(__dirname, '..', 'node_modules', '.bin', 'tsx');
 
   if (!fs.existsSync(tsx)) {
-    throw new Error(`[vite-plugin-define-pages-json] "tsx" is required parse macro expression value`);
+    const config = getConfig();
+
+    tsx = path.join(config.root, 'node_modules', '.bin', 'tsx');
+
+    if (!fs.existsSync(tsx)) {
+      throw new Error(`[vite-plugin-define-pages-json] "tsx" is required parse macro expression value`);
+    }
   }
 
   const ast = t.file(t.program([
