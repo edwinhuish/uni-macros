@@ -83,9 +83,6 @@ importers:
       '@antfu/utils':
         specifier: ^0.7.7
         version: 0.7.7
-      '@babel/core':
-        specifier: ^7.24.3
-        version: 7.24.4
       '@babel/generator':
         specifier: ^7.23.6
         version: 7.24.4
@@ -95,15 +92,15 @@ importers:
       '@babel/types':
         specifier: ^7.24.0
         version: 7.24.0
-      '@vue/compiler-core':
-        specifier: ^3.4.21
-        version: 3.4.21
       '@vue/compiler-sfc':
         specifier: ^3.4.21
         version: 3.4.21
       ast-kit:
         specifier: ^0.12.1
         version: 0.12.1
+      chokidar:
+        specifier: ^3.6.0
+        version: 3.6.0
       debug:
         specifier: ^4.3.4
         version: 4.3.4
@@ -129,6 +126,9 @@ importers:
       '@types/debug':
         specifier: ^4.1.12
         version: 4.1.12
+      vite:
+        specifier: 4.3.5
+        version: 4.3.5(@types/node@20.12.7)(terser@5.30.3)
 
   packages/playground:
     dependencies:

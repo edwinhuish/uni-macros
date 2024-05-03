@@ -12,7 +12,11 @@
   },
   "bugs": "https://github.com/edwinhuish/uni-macros/issues",
   "keywords": [
-    "uniapp", "uni-app", "pages.json", "macros", "definePage"
+    "uniapp",
+    "uni-app",
+    "pages.json",
+    "macros",
+    "definePage"
   ],
   "sideEffects": false,
   "exports": {
@@ -45,13 +49,12 @@
   },
   "dependencies": {
     "@antfu/utils": "^0.7.7",
-    "@babel/core": "^7.24.3",
     "@babel/generator": "^7.23.6",
     "@babel/traverse": "^7.24.1",
     "@babel/types": "^7.24.0",
-    "@vue/compiler-core": "^3.4.21",
     "@vue/compiler-sfc": "^3.4.21",
     "ast-kit": "^0.12.1",
+    "chokidar": "^3.6.0",
     "debug": "^4.3.4",
     "fast-glob": "^3.3.2",
     "tsx": "^4.7.1",
@@ -61,6 +64,7 @@
     "@types/babel__core": "^7.20.5",
     "@types/babel__generator": "^7.6.8",
     "@types/babel__traverse": "^7.20.5",
-    "@types/debug": "^4.1.12"
+    "@types/debug": "^4.1.12",
+    "vite": "4.3.5"
   }
 }
