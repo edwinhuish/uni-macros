@@ -11,7 +11,9 @@
     "url": "git+https://github.com/edwinhuish/uni-macros.git"
   },
   "bugs": "https://github.com/edwinhuish/uni-macros/issues",
-  "keywords": [],
+  "keywords": [
+    "uniapp", "uni-app", "pages.json", "macros", "definePage"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {

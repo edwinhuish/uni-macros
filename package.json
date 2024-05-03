@@ -5,7 +5,9 @@
   "description": "",
   "author": "Edwin Xu",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "uniapp", "uni-app", "macros"
+  ],
   "scripts": {
     "build": "rimraf --glob packages/*/dist && pnpm -r --filter=./packages/* run build",
     "publish": "pnpm build && changeset publish",
