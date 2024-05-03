@@ -7,6 +7,9 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
+    esbuild: {
+      minify: true,
+    },
   },
   externals: ['vite'],
   failOnWarn: false,
