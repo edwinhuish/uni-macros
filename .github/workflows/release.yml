@@ -30,6 +30,10 @@ jobs:
           fetch-depth: 0
 
       - uses: pnpm/action-setup@v3.0.0
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
