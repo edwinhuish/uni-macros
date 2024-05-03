@@ -1,5 +1,11 @@
 # vite-plugin-pages-json
 
+## 0.0.8
+
+### Patch Changes
+
+- [`58629b4`](https://github.com/edwinhuish/uni-macros/commit/58629b485706783d3cec9f22640c3d9693ec8f03) Thanks [@edwinhuish](https://github.com/edwinhuish)! - add magic-string
+
 ## 0.0.7
 
 ### Patch Changes
