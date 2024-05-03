@@ -81,19 +81,19 @@ export function resolveConfig(useConfig: UserConfig): ResolvedConfig {
     root,
     get dts() {
       return dts === undefined
-        ? path.resolve(root, basePath)
+        ? this.basePath
         : dts;
     },
     pages,
     subPackages,
     get basePath() {
-      return path.resolve(root, basePath);
+      return path.resolve(this.root, basePath);
     },
     exclude,
     fileDeep,
     debug,
     get pagesJsonFile() {
-      return path.join(root, basePath, OUTPUT_NAME);
+      return path.join(this.basePath, OUTPUT_NAME);
     },
   };
 

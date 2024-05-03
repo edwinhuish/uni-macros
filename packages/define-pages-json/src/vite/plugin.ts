@@ -34,7 +34,9 @@ export function viteDefinePagesJson(userConfig: UserConfig = {}): Plugin {
     name: 'vite-plugin-define-pages-json',
     enforce: 'pre',
     async configResolved(viteConf) {
-      ctx.config.root = viteConf.root;
+      if (!userConfig.root) {
+        ctx.config.root = viteConf.root;
+      }
       await ctx.updatePagesJSON();
 
       if (viteConf.command === 'build') {
