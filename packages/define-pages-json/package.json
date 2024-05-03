@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-define-pages-json",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Define uniapp pages.json dynamically.",
   "author": "Edwin Xu <edwinhuish@gmail.com>",
   "license": "MIT",

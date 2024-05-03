@@ -1,5 +1,11 @@
 # vite-plugin-define-pages-json
 
+## 0.0.5
+
+### Patch Changes
+
+- [`0186409`](https://github.com/edwinhuish/uni-macros/commit/0186409e92b1090eebd4535cc996891d5e0e5eab) Thanks [@edwinhuish](https://github.com/edwinhuish)! - fix types
+
 ## 0.0.4
 
 ### Patch Changes
