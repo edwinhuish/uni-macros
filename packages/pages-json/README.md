@@ -19,12 +19,12 @@ pnpm i -D vite-plugin-pages-json
 ```ts
 import uni from '@dcloudio/vite-plugin-uni';
 import { defineConfig } from 'vite';
-import VitePageJson from 'vite-plugin-pages-json';
+import VitePagesJson from 'vite-plugin-pages-json';
 
 export default defineConfig({
   plugins: [
-    VitePageJson(), // 详细配置请看下面的详细描述
-    uni(), // 添加在 VitePageJson() 之后
+    VitePagesJson(), // 详细配置请看下面的详细描述
+    uni(), // 添加在 VitePagesJson() 之后
     // 其他plugins
   ],
 });
@@ -42,7 +42,7 @@ export default defineConfig({
 }
 ```
 
-## vite 详细配置
+### vite 详细配置
 
 ```ts
 export interface UserConfig {
@@ -133,7 +133,7 @@ export default definePagesJson({
 
 更多使用方式请参考 [playground/pages/define-page](../playground/src/pages/define-page/)
 
-#### 注意：
+**注意：**
 - 以下代码需要写在 `script setup` 内
 - `definePage` 宏和当前 SFC 不同域，且先于 SFC 生成，SFC 内部变量无法使用。
 - 页面 path url 将会自动根据文件路径生成，如无须配置其他项目，`definePage`可省略
