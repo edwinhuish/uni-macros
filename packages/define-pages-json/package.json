@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "description": "Define uniapp pages.json dynamically.",
-  "author": "Edwin Xu",
+  "author": "Edwin Xu <edwinhuish@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/edwinhuish/uni-macros",
   "repository": {
