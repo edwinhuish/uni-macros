@@ -1,11 +1,11 @@
 import type { File } from './file';
-import type { MaybeCallable, MaybePromise, PagesJsonPage, TabBarItem } from './types';
+import type { MaybePromiseCallable, PagesJsonPage, TabBarItem } from './types';
 import path from 'node:path';
 import { slash } from '@antfu/utils';
 import { DEFINE_PAGE } from './constant';
 import { debug } from './utils';
 
-export type DefineTabbarOptions = Omit<TabBarItem, 'pagePath'> & {
+export interface DefineTabbarOptions extends Partial<TabBarItem> {
   /**
    * 配置tabbar路径
    * @deprecated 无效，将会根据文件路径自动生成
@@ -20,7 +20,7 @@ export type DefineTabbarOptions = Omit<TabBarItem, 'pagePath'> & {
 
 export type PageType = 'home' | 'normal';
 
-export interface DefinePageOptions extends Omit<PagesJsonPage, 'path'> {
+export interface DefinePageOptions extends Partial<PagesJsonPage> {
   /**
    * 配置页面路径
    * @deprecated 无效，将会根据文件路径自动生成
@@ -37,7 +37,7 @@ export interface DefinePageOptions extends Omit<PagesJsonPage, 'path'> {
 }
 
 // eslint-disable-next-line unused-imports/no-unused-vars
-export function definePage(options: MaybeCallable<MaybePromise<DefinePageOptions>>) {
+export function definePage(options: MaybePromiseCallable<DefinePageOptions>) {
 }
 
 export class Page {
