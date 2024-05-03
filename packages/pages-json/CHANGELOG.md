@@ -1,5 +1,11 @@
 # vite-plugin-pages-json
 
+## 0.0.6
+
+### Patch Changes
+
+- [`ddc6089`](https://github.com/edwinhuish/uni-macros/commit/ddc6089180ee1fa34e7f18d2d067f412e5b5eec7) Thanks [@edwinhuish](https://github.com/edwinhuish)! - change plugin package name
+
 ## 0.0.5
 
 ### Patch Changes
