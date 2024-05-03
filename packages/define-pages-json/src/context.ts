@@ -39,11 +39,11 @@ export class Context {
     const pages = new Map<string, Page>();
 
     // pages
-    listFiles(
-      this.config.root,
-      this.config.pages,
-      this.config.exclude,
-    ).forEach((p) => {
+    listFiles(this.config.pages, {
+      cwd: this.config.root,
+      ignore: this.config.exclude,
+      deep: this.config.fileDeep,
+    }).forEach((p) => {
       const file = this.files.get(p) || new File(p);
       files.set(p, file);
       debug.scanFiles(`pages: ${p}`);
@@ -61,11 +61,11 @@ export class Context {
 
       const root = path.basename(dir);
 
-      listFiles(
-        this.config.root,
-        dir,
-        this.config.exclude,
-      ).forEach((p) => {
+      listFiles(dir, {
+        cwd: this.config.root,
+        ignore: this.config.exclude,
+        deep: this.config.fileDeep,
+      }).forEach((p) => {
         const file = this.files.get(p) || new File(p);
         files.set(p, file);
         debug.scanFiles(`subPackages: ${p}`);
@@ -241,16 +241,18 @@ export class Context {
 
 export const ctx = new Context();
 
-function listFiles(cwd: string, relative: string, ignore: string[]) {
-  const source = FILE_EXTENSIONS.map(ext => path.join(relative, '**', `*.${ext}`));
+function listFiles(dir: string, options: fg.Options = {}) {
+  const { cwd, ignore = [], deep = 3, ...others } = options;
+  const source = FILE_EXTENSIONS.map(ext => path.join(dir, '**', `*.${ext}`));
   const files = fg.sync(source, {
     cwd,
     ignore,
+    deep,
+    ...others,
     onlyFiles: true,
     dot: true,
     unique: true,
     absolute: true,
-    deep: 3,
   });
 
   return files;

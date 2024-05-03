@@ -45,6 +45,12 @@ export interface UserConfig {
   exclude?: string[];
 
   /**
+   * Scan files deep
+   * @default 3
+   */
+  fileDeep?: number;
+
+  /**
    * enable debug log
    * @default false
    */
@@ -65,6 +71,7 @@ export function resolveConfig(useConfig: UserConfig): ResolvedConfig {
     pages = 'src/pages',
     subPackages = [],
     exclude = ['node_modules', '.git', '**/__*__/**'],
+    fileDeep = 3,
     debug = false,
   } = useConfig;
 
@@ -83,6 +90,7 @@ export function resolveConfig(useConfig: UserConfig): ResolvedConfig {
       return path.resolve(root, basePath);
     },
     exclude,
+    fileDeep,
     debug,
     get pagesJsonFile() {
       return path.join(root, basePath, OUTPUT_NAME);
