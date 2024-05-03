@@ -101,7 +101,7 @@ export interface UserConfig {
 
 ### 全局 `pages.json.(ts|mts|cts|js|cjs|mjs)` 配置
 
-配置文件可选，放于和 `pages.json` 同级目录。
+动态配置文件，和 `pages.json` 同级目录。
 
 将与 `definePage` 合并，生成最终的 `pages.json`
 
