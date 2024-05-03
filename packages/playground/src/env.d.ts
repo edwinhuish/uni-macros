@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-/// <reference types='vite-plugin-define-pages-json'/>
+/// <reference types='vite-plugin-pages-json'/>
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue';

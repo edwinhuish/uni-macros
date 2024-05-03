@@ -194,7 +194,7 @@ async function exec<R = any>(file: string, exp: t.Expression, imports: t.ImportD
     tsx = path.join(config.root, 'node_modules', '.bin', 'tsx');
 
     if (!fs.existsSync(tsx)) {
-      throw new Error(`[vite-plugin-define-pages-json] "tsx" is required parse macro expression value`);
+      throw new Error(`[vite-plugin-pages-json] "tsx" is required parse macro expression value`);
     }
   }
 

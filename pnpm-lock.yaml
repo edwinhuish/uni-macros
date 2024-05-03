@@ -78,7 +78,7 @@ importers:
         specifier: ^1.4.0
         version: 1.5.0(@types/node@20.12.7)
 
-  packages/define-pages-json:
+  packages/pages-json:
     dependencies:
       '@antfu/utils':
         specifier: ^0.7.7
@@ -211,9 +211,9 @@ importers:
       vite:
         specifier: 4.3.5
         version: 4.3.5(@types/node@20.12.7)(terser@5.30.3)
-      vite-plugin-define-pages-json:
+      vite-plugin-pages-json:
         specifier: workspace:^
-        version: link:../define-pages-json
+        version: link:../pages-json
       vue-tsc:
         specifier: ^1.0.24
         version: 1.8.27(typescript@4.9.5)

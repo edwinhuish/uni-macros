@@ -1,4 +1,4 @@
-# vite-plugin-define-pages-json
+# vite-plugin-pages-json
 
 `definePage` 宏，用于动态生成 `pages.json`。
 
@@ -10,7 +10,7 @@
 ## 安装
 
 ```shell
-pnpm i -D vite-plugin-define-pages-json
+pnpm i -D vite-plugin-pages-json
 ```
 
 ## 配置
@@ -19,7 +19,7 @@ pnpm i -D vite-plugin-define-pages-json
 ```ts
 import uni from '@dcloudio/vite-plugin-uni';
 import { defineConfig } from 'vite';
-import VitePageJson from 'vite-plugin-define-pages-json';
+import VitePageJson from 'vite-plugin-pages-json';
 
 export default defineConfig({
   plugins: [
@@ -37,7 +37,7 @@ export default defineConfig({
 ```json
 {
   "compilerOptions": {
-    "types": ["vite-plugin-define-pages-json"]
+    "types": ["vite-plugin-pages-json"]
   }
 }
 ```
@@ -106,7 +106,7 @@ export interface UserConfig {
 将与 `definePage` 合并，生成最终的 `pages.json`
 
 ```ts
-import { definePagesJson } from 'vite-plugin-define-pages-json';
+import { definePagesJson } from 'vite-plugin-pages-json';
 
 export default definePagesJson({
   globalStyle: {
@@ -205,7 +205,7 @@ definePage(() => {
 ### 获取当前上下文的数据
 
 ```ts
-import { ctx } from 'vite-plugin-define-pages-json';
+import { ctx } from 'vite-plugin-pages-json';
 
 console.log(ctx.files);
 console.log(ctx.pages);

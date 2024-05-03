@@ -1,4 +1,4 @@
-# vite-plugin-define-pages-json
+# vite-plugin-pages-json
 
 ## 0.0.5
 

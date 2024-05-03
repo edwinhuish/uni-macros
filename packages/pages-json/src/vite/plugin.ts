@@ -31,7 +31,7 @@ export function viteDefinePagesJson(userConfig: UserConfig = {}): Plugin {
   checkPagesJsonFile();
 
   return {
-    name: 'vite-plugin-define-pages-json',
+    name: 'vite-plugin-pages-json',
     enforce: 'pre',
     async configResolved(viteConf) {
       if (!userConfig.root) {
