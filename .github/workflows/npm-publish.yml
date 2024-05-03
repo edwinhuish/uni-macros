@@ -1,0 +1,27 @@
+# name属性用来指定这个工作流的名字
+name: Create release and publish NPM
+
+on:
+  # 当对分支master进行push操作的时候,触发该条工作流
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  publish-vite-plugin-define-pages-json:
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: 安装依赖
+        run: npm ci
+        working-directory: packages/define-pages-json
+      - name: 发布到 NPM
+        run: npm publish --access public || true
+        working-directory: packages/define-pages-json
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
