@@ -3,6 +3,7 @@ import type { SFCScriptBlock } from '@vue/compiler-sfc';
 import type { ParseResult } from 'ast-kit';
 import fs from 'node:fs';
 import path from 'node:path';
+import process from 'node:process';
 import generate from '@babel/generator';
 import traverse from '@babel/traverse';
 import * as t from '@babel/types';
@@ -188,13 +189,16 @@ async function exec<R = any>(file: string, exp: t.Expression, imports: t.ImportD
   let tsx = path.join(__dirname, '..', 'node_modules', '.bin', 'tsx');
 
   if (!fs.existsSync(tsx)) {
+    tsx = path.join(process.cwd(), 'node_modules', '.bin', 'tsx');
+  }
+
+  if (!fs.existsSync(tsx)) {
     const config = getConfig();
-
     tsx = path.join(config.root, 'node_modules', '.bin', 'tsx');
+  }
 
-    if (!fs.existsSync(tsx)) {
-      throw new Error(`[vite-plugin-pages-json] "tsx" is required parse macro expression value`);
-    }
+  if (!fs.existsSync(tsx)) {
+    throw new Error(`[vite-plugin-pages-json] "tsx" is required parse macro expression value`);
   }
 
   const ast = t.file(t.program([
