@@ -1,5 +1,13 @@
 # vite-plugin-pages-json
 
+## 0.0.9
+
+### Patch Changes
+
+- [`5be8904`](https://github.com/edwinhuish/uni-macros/commit/5be8904e70e6a269d84ca095c64d0585255edfbb) Thanks [@edwinhuish](https://github.com/edwinhuish)! - clear useless import
+
+- [`18c6164`](https://github.com/edwinhuish/uni-macros/commit/18c6164e38de93b1517659934acf66790e5b7268) Thanks [@edwinhuish](https://github.com/edwinhuish)! - fix dts config value
+
 ## 0.0.8
 
 ### Patch Changes
