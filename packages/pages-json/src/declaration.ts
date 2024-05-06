@@ -2,12 +2,11 @@ import type { PagesJson } from './types';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile as writeFile_ } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
-
-import { normalizePath } from 'vite';
+import { slash } from '@antfu/utils';
 
 export function getDeclaration(pagesJSON: PagesJson) {
   const subPagesPaths = (pagesJSON.subPackages || []).map((sub) => {
-    return (sub.pages || []).map(v => (`"/${normalizePath(join(sub.root!, v.path))}"`));
+    return (sub.pages || []).map(v => (`"/${slash(join(sub.root!, v.path))}"`));
   }).flat();
   const tabPaths = (pagesJSON.tabBar?.list || []).map((v) => {
     return `"/${v!.pagePath}"`;
