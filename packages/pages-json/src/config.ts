@@ -80,9 +80,9 @@ export function resolveConfig(useConfig: UserConfig): ResolvedConfig {
   resolvedConfig = {
     root,
     get dts() {
-      return dts === undefined
+      return dts == null
         ? path.resolve(this.basePath, DTS_FILE_NAME)
-        : dts;
+        : path.isAbsolute(dts) ? dts : path.resolve(this.basePath, dts);
     },
     pages,
     subPackages,
