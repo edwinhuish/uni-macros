@@ -236,7 +236,7 @@ async function exec<R = any>(file: string, exp: t.Expression, imports: t.ImportD
 
   const result = output.split(delimiter).pop();
 
-  const res = result ? JSON.parse(result) : result;
+  const res: R | undefined = result ? JSON.parse(result) : undefined;
 
   debug.exec(`RESULT: ${JSON.stringify(res, null, 2)}`);
 
