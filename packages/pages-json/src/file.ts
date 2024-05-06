@@ -8,7 +8,6 @@ import traverse from '@babel/traverse';
 import * as t from '@babel/types';
 import { parse as parseSFC } from '@vue/compiler-sfc';
 import { babelParse, isCallOf } from 'ast-kit';
-import * as ts from 'typescript';
 import { getConfig } from './config';
 import { runProcess } from './utils/child-process';
 import { debug } from './utils/debug';

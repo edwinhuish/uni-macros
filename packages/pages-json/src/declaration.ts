@@ -4,7 +4,6 @@ import { mkdir, readFile, writeFile as writeFile_ } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
 import { normalizePath } from 'vite';
-import { ctx } from './context';
 
 export function getDeclaration(pagesJSON: PagesJson) {
   const subPagesPaths = (pagesJSON.subPackages || []).map((sub) => {
