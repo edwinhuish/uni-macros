@@ -104,7 +104,9 @@ export interface MidButton {
   iconfont?: IconFont;
 }
 
-export type TabBarItemList = [TabBarItem, TabBarItem]
+export type TabBarItemList = []
+  | [TabBarItem]
+  | [TabBarItem, TabBarItem]
   | [TabBarItem, TabBarItem, TabBarItem]
   | [TabBarItem, TabBarItem, TabBarItem, TabBarItem]
   | [TabBarItem, TabBarItem, TabBarItem, TabBarItem, TabBarItem];
