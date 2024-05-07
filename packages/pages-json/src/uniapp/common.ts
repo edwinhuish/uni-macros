@@ -1,4 +1,4 @@
-type Space = '' | ' ' | '  ';
+type Space = '' | ' ';
 export type RGBColor = `rgb(${number},${Space}${number},${Space}${number})`;
 export type RGBAColor = `rgba(${number},${Space}${number},${Space}${number},${Space}${number})`;
 export type HEXColor = `#${string}`;
