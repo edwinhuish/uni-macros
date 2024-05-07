@@ -1,5 +1,11 @@
 # vite-plugin-pages-json
 
+## 0.0.10
+
+### Patch Changes
+
+- [`7885016`](https://github.com/edwinhuish/uni-macros/commit/78850162bceae5319c020c10e411e59fed57c011) Thanks [@edwinhuish](https://github.com/edwinhuish)! - fix types
+
 ## 0.0.9
 
 ### Patch Changes
