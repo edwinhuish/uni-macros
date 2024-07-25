@@ -64,7 +64,6 @@
     "@types/babel__core": "^7.20.5",
     "@types/babel__generator": "^7.6.8",
     "@types/babel__traverse": "^7.20.5",
-    "@types/debug": "^4.1.12",
-    "vite": "4.3.5"
+    "@types/debug": "^4.1.12"
   }
 }
