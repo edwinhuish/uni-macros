@@ -6,12 +6,15 @@
   "author": "Edwin Xu",
   "license": "MIT",
   "keywords": [
-    "uniapp", "uni-app", "macros"
+    "uniapp",
+    "uni-app",
+    "macros"
   ],
   "scripts": {
     "build": "rimraf --glob packages/*/dist && pnpm -r --filter=./packages/* run build",
     "publish": "pnpm build && changeset publish",
     "dev:h5": "pnpm build && pnpm --filter=./packages/playground dev:h5",
+    "dev:mp-weixin": "pnpm build && pnpm --filter=./packages/playground dev:mp-weixin",
     "typecheck": "tsc -p . --noEmit",
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix",
@@ -40,6 +43,7 @@
     "unbuild": "^2.0.0",
     "unconfig": "^0.3.11",
     "unplugin": "^1.10.0",
+    "vite": "^5.0.0",
     "vitest": "^1.4.0"
   }
 }

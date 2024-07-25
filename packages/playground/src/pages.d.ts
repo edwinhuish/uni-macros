@@ -6,7 +6,6 @@
 interface NavigateToOptions {
   url: "/pages/define-page/async-function" |
        "/pages/define-page/function" |
-       "/pages/define-page/import-module" |
        "/pages/define-page/import" |
        "/pages/define-page/nested-function" |
        "/pages/define-page/object" |
