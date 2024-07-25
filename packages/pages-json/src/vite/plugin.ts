@@ -56,13 +56,15 @@ export function viteDefinePagesJson(userConfig: UserConfig = {}): Plugin {
         return;
       }
 
-      const macro = file.getScriptSetup()?.findMacro(DEFINE_PAGE);
+      const setup = file.getScriptSetup();
+
+      const macro = setup?.findMacro(DEFINE_PAGE);
       if (!macro) {
         return;
       }
 
       const s = new MagicString(code);
-      s.remove(macro.start!, macro.end!);
+      s.remove(macro.start! + setup.loc.start.offset, macro.end! + setup.loc.start.offset);
 
       if (s.hasChanged()) {
         const code = s.toString();
