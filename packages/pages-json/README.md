@@ -1,5 +1,7 @@
 # vite-plugin-pages-json
 
+# Deprecated: 废弃，已转移至 [@uni-ku/define-page](https://github.com/uni-ku/define-page)
+
 `definePage` 宏，用于动态生成 `pages.json`。
 
 - 支持类型提示、约束
